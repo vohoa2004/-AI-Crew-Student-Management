@@ -58,10 +58,9 @@ class Menu:
         print("| 1. View Grade List        |")
         print("| 2. Search Grade By Student|")
         print("| 3. Search Grade By Subject|")
-        print("| 4. Add new grade          |")
-        print("| 5. Update grade           |")
-        print("| 6. Delete grade           |")
-        print("| 7. Back to Main Menu      |")
+        print("| 4. Update grade           |")
+        print("| 5. Delete grade           |")
+        print("| 6. Back to Main Menu      |")
         print("-----------------------------")
         
     @staticmethod

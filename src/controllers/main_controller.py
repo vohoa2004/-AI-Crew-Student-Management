@@ -49,7 +49,7 @@ class Controller:
                 status = student_list.add_student()
             elif choice == '4':
                 print("Update student profile: ")
-                roll = input("Enter the student id: ")
+                roll = input("Enter the roll number: ")
                 
                 status = student_list.update_student(roll)
             elif choice == '5':
@@ -126,19 +126,9 @@ class Controller:
                 root = markBST.create_tree_student(subject, mark_list.get_subject_marks(subject))
                 Controller.sort_management(markBST, root)
                 
-            elif choice == '4':
-                roll = input("Enter student id: ")
-                subject = input("Enter subject id: ")
-                score = input("Enter marks: ")
-                if subject_list.searchBySubjectId(subject) != None and student_list.searchByRoll(roll) != None:
-                    mark = mark_list.input_mark(roll, subject, score)
-                    status = mark_list.add_mark(mark)
-                    if status == True:
-                        print("Added new grade successfully!")
-                else:
-                    print("Cannot add new grade in this case!")
+            
                     
-            elif choice == '5':
+            elif choice == '4':
                 roll = input("Enter student id: ")
                 subject_id = input("Enter subject id: ")
                 if (roll, subject_id) in mark_list.marks: # check if student registered subject
@@ -151,7 +141,7 @@ class Controller:
                     print("The student is not enrolled for the given subject.")
                     status = False
                     
-            elif choice == '6':
+            elif choice == '5':
                 roll = input("Enter student id: ")
                 subject_id = input("Enter subject id: ")
                 if (roll, subject_id) in mark_list.marks: # check if student registered subject
@@ -161,7 +151,7 @@ class Controller:
                     status = True
                 else:
                     print("The student is not enrolled for the given subject.")
-            elif choice == '7':
+            elif choice == '6':
                 return status
             else:
                 print("Invalid choice. Please try again.")

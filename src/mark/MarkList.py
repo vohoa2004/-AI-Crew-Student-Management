@@ -81,7 +81,7 @@ class MarkList:
             for line in file:
                 roll, subject, score = line.strip().split(',')
                 if score != "None":
-                    self.add_mark(Mark(roll, subject, int(score)))
+                    self.add_mark(Mark(roll, subject, float(score)))
                 else:
                     self.add_mark(Mark(roll, subject, None))
 
