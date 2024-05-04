@@ -1,5 +1,4 @@
-# This is a student management project, written in Python
-Sure, here's an expanded outline of the project:
+# Student management project written in Python:
 
 1. Introduction
     - This project is a Python console application, focuses on Data Structures and Algorithms, applys many data structures to student management.
