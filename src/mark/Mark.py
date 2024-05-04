@@ -30,7 +30,7 @@ class Mark:
     
     @score.setter
     def score(self, value):
-        if isinstance(value, (int, float)):
+        if isinstance(value, (int, float)) or value == None:
             self.__score = value
         else:
             raise TypeError("Marks should be a number")

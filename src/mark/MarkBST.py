@@ -9,6 +9,8 @@ class Node:
 
 class MarkBST:
     def insert_node(self, root, mark):
+        if mark.score == None: 
+            mark.score = -1
         if not root:
             return Node(mark)
         elif mark.score < root.mark.score:
@@ -81,11 +83,17 @@ class MarkBST:
         if root:
             if reverse:
                 self.inorder_traversal(root.right, reverse)
-                root.mark.print_score()
+                if root.mark.score == -1:
+                    root.mark.score = None
+                if root.mark.score != None:
+                    root.mark.print_score()
                 self.inorder_traversal(root.left, reverse)
             else:
                 self.inorder_traversal(root.left, reverse)
-                root.mark.print_score()
+                if root.mark.score == -1:
+                    root.mark.score = None
+                if root.mark.score != None:
+                    root.mark.print_score()
                 self.inorder_traversal(root.right, reverse)
 
     def create_tree(self, mark_list):
