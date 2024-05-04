@@ -13,7 +13,7 @@ class MarkBST:
             mark.score = -1
         if not root:
             return Node(mark)
-        elif mark.score < root.mark.score:
+        elif int(mark.score) < int(root.mark.score):
             root.left = self.insert_node(root.left, mark)
         else:
             root.right = self.insert_node(root.right, mark)
@@ -22,13 +22,13 @@ class MarkBST:
 
         balanceFactor = self.get_balance(root)
         if balanceFactor > 1:
-            if mark.score < root.left.mark.score:
+            if int(mark.score) < int(root.left.mark.score):
                 return self.right_rotate(root)
             else:
                 root.left = self.left_rotate(root.left)
                 return self.right_rotate(root)
         if balanceFactor < -1:
-            if mark.score > root.right.mark.score:
+            if int(mark.score) > int(root.right.mark.score):
                 return self.left_rotate(root)
             else:
                 root.right = self.right_rotate(root.right)

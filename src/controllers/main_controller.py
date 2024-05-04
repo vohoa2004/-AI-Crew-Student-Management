@@ -48,8 +48,10 @@ class Controller:
             elif choice == '3':
                 status = student_list.add_student()
             elif choice == '4':
-                roll = input("Enter roll number: ")
+                print("Update student profile: ")
+                roll = input("Enter the student id: ")
                 
+                status = student_list.update_student(roll)
             elif choice == '5':
                 roll = input("Enter roll number: ")
                 if student_list.searchByRoll(roll) != None:

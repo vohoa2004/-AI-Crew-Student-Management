@@ -122,7 +122,8 @@ class StudentList:
         hometown = input("Enter hometown: ")
         student = Student(roll, name, birth, hometown)
         self.addLast(student)
-        print("Student added successfully.")
+        print("Student added successfully. New student: ")
+        student.print_student()
         return True
 
     def delete_student(self, roll, mark_list):
@@ -141,4 +142,31 @@ class StudentList:
         print("Student deleted successfully!")
         status = True
         return status
+    
+    def update_student(self, roll):
+        student = self.searchByRoll(roll)
+        if student != None :
+            print("The student profile:")
+            student.print_student()
+            
+            # edit profile
+            print("Update the student profile:")
+            new_hometown = input("Enter new hometown \n (Blank space will be treated as no change)").strip()
+            new_name = input("Enter new name \n (Blank space will be treated as no change): ").strip()
+            new_birth = input("Enter new birth year: \n (Blank space will be treated as no change): ").strip()
+            
+            if new_name != "":
+                student.name = new_name
+                
+            if new_birth != "":
+                student.birth = int(new_birth)
+            
+            if new_hometown != "":
+                student.hometown = new_hometown
+           
+            print("Student information after updating:")
+            student.print_student()
+        else:
+            print("Invalid student information!")
+
             
