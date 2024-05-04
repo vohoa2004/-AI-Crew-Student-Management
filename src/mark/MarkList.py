@@ -1,3 +1,4 @@
+# organize mark list as a dictionary that has key is a tuple (roll, subject) for fast searching base on key
 from mark.Mark import Mark
 
 file_name = "data/mark.csv"
@@ -12,7 +13,7 @@ class MarkList:
     def add_mark(self, mark):
         key = (mark.roll, mark.subject)
         if key in self.marks:
-            print("This student already joined this subject.")
+            print("This student already joined this subject.\n You must update score, not create new one!")
             return False
         else:
             self.marks[key] = mark.score
@@ -64,8 +65,9 @@ class MarkList:
             print(f"No students found for subject {subject}")
     
     def print_all_marks(self):
-        for (roll, subject), mark in self.marks.items():
-            print(f"Roll Number: {roll}, Subject: {subject}, Mark: {mark}")
+        for (roll, subject), score in self.marks.items():
+            mark = Mark(roll, subject, score)
+            mark.print_score()
 
     def check_subject_existence(self, subject_id):
         return any(subject_id == subject for (_, subject), _ in self.marks.items())

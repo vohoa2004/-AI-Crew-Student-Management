@@ -23,7 +23,7 @@ def main():
         elif choice == '2':
             status = Controller.subject_management(subject_list, mark_list)
         elif choice == '3':
-            # status = grade_management(mark_list)
+            status = Controller.grade_management(mark_list, subject_list, student_list)
             pass
         elif choice == '4':
             status = Controller.save_all_file(student_list, subject_list, mark_list)

@@ -61,4 +61,15 @@ class Menu:
         print("| 4. Add new grade          |")
         print("| 5. Update grade           |")
         print("| 6. Delete grade           |")
+        print("| 7. Back to Main Menu      |")
         print("-----------------------------")
+        
+    @staticmethod
+    def display_sort_menu():
+        print("----------------------------------")
+        print("| Sorting Menu                   |")
+        print("----------------------------------")
+        print("| 1. Sort mark list ascending    |")
+        print("| 2. Sort mark list descending   |")
+        print("| 3. Back to Previous Menu       |")
+        print("----------------------------------")
