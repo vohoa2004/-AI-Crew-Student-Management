@@ -1,65 +1,11 @@
 import csv
 from student.Student import Student
+from linked_list.LinkedList import LinkedList
 
 student_file_name = "data/student.csv" 
 
-class Node:    
-    def __init__(self, student):        
-        self.value = student        
-        self.next = None
-        
-    def printNode(self):
-        self.value.print_student()
 
-class StudentList:
-       
-    head = Node(None)
-    tail = Node(None) 
-    
-    def __init__(self):
-        self.head = self.tail = None
-        
-    def isEmpty(self):
-        return self.head == None
-    
-    def addLast(self, student):
-        node = Node(student)
-        if self.isEmpty():
-            self.tail = self.head = node
-        else:
-            self.tail.next = node
-            self.tail = node
- 
-    def remove_node(self,target):
-        # If the list is empty, return None
-        if not self.head:
-            return None
-
-        # If the target is the head, update the head pointer
-        if self.head.value == target:
-            return self.head.next
-
-        # Traverse the list to find the node before the target
-        prev = self.head
-        current = self.head.next
-        while current:
-            if current.value == target:
-                # Remove the node by updating the pointers
-                prev.next = current.next
-                return self.head
-            prev = current
-            current = current.next
-
-        # If the target is not found, return the head
-        return self.head
- 
-    # method to make the list iterable
-    def __iter__(self):
-        current = self.head
-        while current:
-            yield current.value
-            current = current.next    
-            
+class StudentList(LinkedList):
     @staticmethod
     def create_student(line):
         tokens = line.strip().split(",")
@@ -151,9 +97,13 @@ class StudentList:
             
             # edit profile
             print("Update the student profile:")
-            new_hometown = input("Enter new hometown \n (Blank space will be treated as no change)").strip()
-            new_name = input("Enter new name \n (Blank space will be treated as no change): ").strip()
+            print("\n")
+            new_hometown = input("Enter new hometown: \n (Blank space will be treated as no change): ").strip()
+            print("\n")
+            new_name = input("Enter new name: \n (Blank space will be treated as no change): ").strip()
+            print("\n")
             new_birth = input("Enter new birth year: \n (Blank space will be treated as no change): ").strip()
+            print("\n")
             
             if new_name != "":
                 student.name = new_name

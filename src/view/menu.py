@@ -22,7 +22,8 @@ class Menu:
         print("| 4. Update Student Profile |")
         print("| 5. Update Student Study   |")
         print("| 6. Delete Student         |")
-        print("| 7. Back to Main Menu      |")
+        print("| 7. Save student data      |")
+        print("| 8. Back to Main Menu      |")
         print("-----------------------------")
 
     @staticmethod
@@ -33,7 +34,8 @@ class Menu:
         print("| 1. Register student to subject |")
         print("| 2. Update student grade        |")
         print("| 3. View student transcript     |")
-        print("| 4. Back to Student Menu        |")
+        print("| 4. Save edit                   |")
+        print("| 5. Back to Student Menu        |")
         print("----------------------------------")
 
     @staticmethod
@@ -47,7 +49,8 @@ class Menu:
         print("| 4. Update Subject          |")
         print("| 5. Delete Subject          |")
         print("| 6. View Students in Subject|")
-        print("| 7. Back to Main Menu       |")
+        print("| 7. Save subject data       |")
+        print("| 8. Back to Main Menu       |")
         print("------------------------------")
 
     @staticmethod        
@@ -60,7 +63,8 @@ class Menu:
         print("| 3. Search Grade By Subject|")
         print("| 4. Update grade           |")
         print("| 5. Delete grade           |")
-        print("| 6. Back to Main Menu      |")
+        print("| 6. Save grade data        |")
+        print("| 7. Back to Main Menu      |")
         print("-----------------------------")
         
     @staticmethod

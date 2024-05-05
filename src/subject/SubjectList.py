@@ -1,64 +1,10 @@
 import csv
 from subject.Subject import Subject
+from linked_list.LinkedList import LinkedList
 
 subject_file_name = "data/subject.csv" 
 
-class Node:    
-    def __init__(self, subject):        
-        self.value = subject        
-        self.next = None
-        
-    def printNode(self):
-        self.value.print_subject()
-
-class SubjectList:
-       
-    head = Node(None)
-    tail = Node(None) 
-    
-    def __init__(self):
-        self.head = self.tail = None
-        
-    def isEmpty(self):
-        return self.head == None
-    
-    def addLast(self, student):
-        node = Node(student)
-        if self.isEmpty():
-            self.tail = self.head = node
-        else:
-            self.tail.next = node
-            self.tail = node
- 
-    def remove_node(self,target):
-        # If the list is empty, return None
-        if not self.head:
-            return None
-
-        # If the target is the head, update the head pointer
-        if self.head.value == target:
-            return self.head.next
-
-        # Traverse the list to find the node before the target
-        prev = self.head
-        current = self.head.next
-        while current:
-            if current.value == target:
-                # Remove the node by updating the pointers
-                prev.next = current.next
-                return self.head
-            prev = current
-            current = current.next
-
-        # If the target is not found, return the head
-        return self.head
- 
-    # method to make the list iterable
-    def __iter__(self):
-        current = self.head
-        while current:
-            yield current.value
-            current = current.next    
+class SubjectList(LinkedList): 
             
     @staticmethod
     def create_subject(line):
@@ -99,7 +45,7 @@ class SubjectList:
                 break
         return found_subject
 
-    # find by roll
+    # find by subject ID
     def displayById(self, subject_id):
         find = self.searchBySubjectId(subject_id)
         if (find != None):
@@ -123,7 +69,7 @@ class SubjectList:
     
     def delete_subject(self, id, mark_list):
         status = False
-        # find student by roll
+        # find subject by ID
         sub = self.searchBySubjectId(id)
         if (sub == None):
             print("No such subject exists.")

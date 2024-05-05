@@ -45,10 +45,10 @@ class Student:
         self.__hometown = value
 
     def print_student(self):
-        roll_str = str(self.roll).ljust(10)  # Adjust the width as needed
-        name_str = str(self.name).ljust(20)  # Adjust the width as needed
-        age_str = str(self.get_age()).ljust(10)  # Adjust the width as needed
-        hometown_str = str(self.hometown).ljust(20)  # Adjust the width as needed
+        roll_str = str(self.roll).ljust(10)  
+        name_str = str(self.name).ljust(20)  
+        age_str = str(self.get_age()).ljust(10) 
+        hometown_str = str(self.hometown).ljust(20) 
         print(f"| {roll_str} | {name_str} | {age_str} | {hometown_str} |")
 
  

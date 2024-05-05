@@ -33,6 +33,8 @@ class Controller:
                 print("Student's transcript: \n")
                 mark_list.print_student_marks(roll)
             elif choice == '4':
+                mark_list.save_to_file()
+            elif choice == '5':
                 return status
 
     def student_management(student_list, subject_list, mark_list):
@@ -46,24 +48,27 @@ class Controller:
                 roll = input("Enter roll number: ")
                 student_list.displayByRoll(roll)
             elif choice == '3':
-                status = student_list.add_student()
+                status = status or student_list.add_student()
             elif choice == '4':
                 print("Update student profile: ")
                 roll = input("Enter the roll number: ")
                 
-                status = student_list.update_student(roll)
+                status = status or student_list.update_student(roll)
             elif choice == '5':
                 roll = input("Enter roll number: ")
                 if student_list.searchByRoll(roll) != None:
-                    status = Controller.study_management(roll, student_list, subject_list, mark_list)
+                    status = status or Controller.study_management(roll, student_list, subject_list, mark_list)
                 else:
                     print("Student not found.")
                 
             elif choice == '6':
                 roll = input("Enter roll number: ")
-                status = student_list.delete_student(roll, mark_list)
+                status = status or student_list.delete_student(roll, mark_list)
                 
             elif choice == '7':
+                student_list.save_to_file()
+                
+            elif choice == '8':
                 return status  # Return to the main menu
             else:
                 print("Invalid choice. Please try again.")
@@ -80,12 +85,12 @@ class Controller:
                 id = input("Enter subject id: ")
                 subject_list.displayById(id)
             elif choice == '3':
-                status = subject_list.add_subject()
+                status = status or subject_list.add_subject()
             elif choice == '4':
                 id = input("Enter subject id: ")
                 name = input("Enter new subject name: ")
                 if (name.strip() != ""):
-                    status = subject_list.update_subject(id, name)
+                    status = status or subject_list.update_subject(id, name)
             elif choice == '5':
                 id = input("Enter subject id: ")
                 status = subject_list.delete_subject(id, mark_list)
@@ -93,6 +98,8 @@ class Controller:
                 id = input("Enter subject id: ")
                 mark_list.print_subject_marks(id)
             elif choice == '7':
+                subject_list.save_to_file()
+            elif choice == '8':
                 return status  # Return to the main menu
             else:
                 print("Invalid choice. Please try again.")
@@ -152,6 +159,8 @@ class Controller:
                 else:
                     print("The student is not enrolled for the given subject.")
             elif choice == '6':
+                mark_list.save_to_file()
+            elif choice == '7':
                 return status
             else:
                 print("Invalid choice. Please try again.")
